@@ -42,17 +42,18 @@ app.use("/rating",ratingRoute)
 
 // app.use("/order", orderRoutes);
 
-// mongoose
-//   .connect(process.env.DATABASE_PATH, { useNewUrlParser: true })
-//   .then(() => {
-//     console.log("db connected");
-//   }).catch((err)=>console.log(err));
 mongoose
-  .connect("mongodb+srv://ghulamullahkhan84:Ghulam8941@cluster0.zqjevzz.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true })
+  .connect(process.env.DATABASE_PATH, { useNewUrlParser: true })
   .then(() => {
     console.log("db connected");
-  });
-const port = process.env.PORT || 5000;  
+  }).catch((err)=>console.log(err));
+// mongoose
+//   .connect("mongodb://0.0.0.0:27017/shp", { useNewUrlParser: true })
+//   .then(() => {
+//     console.log("db connected");
+//   });
+
+const port = process.env.PORT;  
 app.listen(port, function () {
   console.log(`app running on ${port}`);
 });
