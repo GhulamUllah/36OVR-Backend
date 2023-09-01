@@ -48,7 +48,7 @@ app.use("/rating",ratingRoute)
 //     console.log("db connected");
 //   }).catch((err)=>console.log(err));
 mongoose
-  .connect("mongodb://0.0.0.0:27017/shp", { useNewUrlParser: true })
+  .connect("mongodb+srv://ghulamullahkhan84:Ghulam8941@cluster0.zqjevzz.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true })
   .then(() => {
     console.log("db connected");
   });
