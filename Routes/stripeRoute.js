@@ -28,8 +28,8 @@ router.post('/create-checkout-session', async (req, res) => {
       
     mode: 'payment',
    
-    success_url: 'http://localhost:3000/Auth/Cart/Payment/Success',
-    cancel_url: 'http://localhost:3000/Auth/Cart/Payment/Cancel',
+    success_url: 'https://ecommerce-tau-umber.vercel.app/Auth/Cart/Payment/Success',
+    cancel_url: 'https://ecommerce-tau-umber.vercel.app/Auth/Cart/Payment/Cancel',
   });
 
   res.status(200).send({success:true, data:session.id});
