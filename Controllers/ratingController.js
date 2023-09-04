@@ -35,9 +35,13 @@ const getuserRatedProducts = async(req,res)=>{
 const deleteRating = async(req,res)=>{
     if(!req.params.id) res.status(200).send({success:false,message:"Product is Required"})
     else try {
-        const data = await Rating.find({user:req.user._id} && {product:req.params.id})
+        const data = await Rating.findOne({user:req.user._id} && {product:req.params.id})
+        console.log(data)
         if(data){
-            const deldata = await Rating.findOneAndDelete({product:req.params.id})
+            const index = data.user.findIndex(u=> u.toString() === req.user._id.toString())
+            await data.rate.splice(index,1)
+            await data.user.splice(index,1)
+            const deldata = await Rating.findOneAndUpdate({product:req.params.id},{$set:{rate:data.rate,user:data.user}},{new:true})
             res.status(200).send({success:true,message:"Rating Has been Deleted Successfully",data:deldata})
         }
         else{
