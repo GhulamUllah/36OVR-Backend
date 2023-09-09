@@ -443,7 +443,7 @@ exports.resetpasswordlink = async (req, res) => {
       }
       </style>
             <b>You requested for password reset</b>
-            <h5>click on this <a href="http://localhost:3000/passwordreset/${token}">Change Password</a> to reset password</h5>
+            <h5>click on this <a href="https://ecommerce-tau-umber.vercel.app/passwordreset/${token}">Change Password</a> to reset password</h5>
             `,
     });
     if (mail) {
